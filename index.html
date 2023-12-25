@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GIF de Fondo con Contador de Año Nuevo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://i.pinimg.com/originals/e1/12/0b/e1120b72774c34573187fd65415d70a3.gif') center/cover no-repeat fixed;
+      animation: gifLoop 20s infinite; /* Ajusta la duración del bucle según sea necesario */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    @keyframes gifLoop {
+      0% {
+        transform: scale(1.1);
+      }
+      50% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
+    }
+
+    #mensaje {
+      font-size: 3vw; /* Ajusta el tamaño de la fuente en relación con el ancho de la ventana */
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    #contador {
+      font-size: 4vw; /* Ajusta el tamaño de la fuente en relación con el ancho de la ventana */
+      color: white;
+    }
+
+    #botonRedireccion {
+      background-color: #61dafb;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1.5em;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    #botonRedireccion:hover {
+      background-color: #4682b4;
+    }
+  </style>
+</head>
+<body>
+  <div id="mensaje">Falta...</div>
+  <div id="contador"></div>
+
+  <!-- Agrega el resto del contenido de tu página aquí -->
+
+  <a id="botonRedireccion" href="#" onclick="redirigir()">PLEASE NO CLICK</a>
+
+  <script>
+    // Establecer la fecha objetivo (Año Nuevo)
+    const fechaObjetivo = new Date('January 1, 2024 00:00:00 GMT+00:00').getTime();
+
+    // Actualizar el contador cada segundo
+    const actualizarContador = () => {
+      const ahora = new Date().getTime();
+      const tiempoRestante = fechaObjetivo - ahora;
+
+      const dias = Math.floor(tiempoRestante / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((tiempoRestante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((tiempoRestante % (1000 * 60)) / 1000);
+
+      const mensajeElemento = document.getElementById('mensaje');
+      const contadorElemento = document.getElementById('contador');
+
+      mensajeElemento.innerHTML = 'Falta...';
+      contadorElemento.innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+
+      // Cuando llega el nuevo año nuevo
+      if (tiempoRestante < 0) {
+        mensajeElemento.innerHTML = '¡Feliz Año Nuevo!';
+        contadorElemento.innerHTML = '';
+      }
+    };
+
+    // Actualizar el contador cada segundo
+    setInterval(actualizarContador, 1000);
+
+    // Inicializar el contador al cargar la página
+    actualizarContador();
+
+    // Función para redirigir a una página aleatoria
+    const redirigir = () => {
+      const paginas = [
+        'https://maze.toys/mazes/mini/daily/',
+        'https://optical.toys/',
+        'https://sliding.toys/mystic-square/8-puzzle/daily/',
+        // Agrega más URLs según sea necesario
+      ];
+
+      // Obtén una página aleatoria
+      const paginaAleatoria = paginas[Math.floor(Math.random() * paginas.length)];
+
+      // Redirige a la página aleatoria
+      window.location.href = paginaAleatoria;
+    };
+  </script>
+</body>
+</html>
