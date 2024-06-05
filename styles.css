@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    background: linear-gradient(135deg, #f8edeb, #e0f2f1);
+    color: #333;
+}
+
+header {
+    background: url('https://this-person-does-not-exist.com/img/avatar-gen1142178f67d800eee55f67183084e439.jpg') no-repeat center center/cover;
+    color: #333;
+    padding: 50px 0;
+    text-align: center;
+    transition: background 0.5s ease-in-out;
+    border-radius: 0 0 50% 50%;
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    animation: fadeIn 2s;
+}
+
+header p {
+    font-size: 1.2em;
+    animation: fadeIn 2s;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #fab1a0;
+    border-radius: 0 0 50% 50%;
+    padding: 10px 0;
+}
+
+nav a {
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.3s, transform 0.3s;
+    border-radius: 20px;
+}
+
+nav a:hover {
+    background-color: #ff7675;
+    transform: scale(1.1);
+}
+
+section {
+    padding: 40px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+section:hover {
+    transform: translateY(-10px);
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #d63031;
+    border-bottom: 2px solid #d63031;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    animation: slideIn 1s;
+    border-radius: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #dfe6e9;
+    color: #333;
+    border-radius: 50% 50% 0 0;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: #00cec9;
+    box-shadow: 0 0 5px rgba(0, 206, 201, 0.5);
+}
+
+.contact-form button {
+    padding: 10px;
+    background-color: #6c5ce7;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #4834d4;
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
